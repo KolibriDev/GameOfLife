@@ -1,0 +1,34 @@
+{
+  "author": "Kolibri & Landsnet",
+  "name": "package-name",
+  "description": "Package description",
+  "version": "0.0.1",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "dev": "brunch watch --server",
+    "prod": "brunch build -P"
+  },
+  "dependencies": {
+    "auto-reload-brunch": "> 1.6.0 <1.8",
+    "clean-css-brunch": ">= 1.6 <1.8",
+    "css-brunch": "> 1.6 <1.8",
+    "javascript-brunch": "> 1.6 <1.8",
+    "react-brunch": "^1.0.9",
+    "uglify-js-brunch": "> 1.6 <1.8"
+  },
+  "devDependencies": {
+    "chai": "1.2.0",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-requirejs": "^0.2.2",
+    "requirejs": "^2.1.18",
+    "sinon": "1.4.2",
+    "sinon-chai": "2.1.2"
+  }
+}

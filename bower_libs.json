@@ -1,0 +1,11 @@
+/*We don't use bower for dependency management, only to pull in a dependency once, which is then moved to vendor dir. */
+
+{
+  "dependencies": {
+    "lodash": "2.1.0",
+    "jquery": "2.1.4",
+    "react":"0.13.3"
+  },
+  "overrides": {
+  }
+}
