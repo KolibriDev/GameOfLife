@@ -412,7 +412,7 @@
 
       function include (val, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object')
+        var obj = flag(this, 'object');
         this.assert(
             ~obj.indexOf(val)
           , 'expected #{this} to include ' + _.inspect(val)
@@ -941,8 +941,7 @@
           , 'expected #{this} to be an instance of ' + name
           , 'expected #{this} to not be an instance of ' + name
         );
-      };
-
+      }
       Assertion.addMethod('instanceof', assertInstanceOf);
       Assertion.addMethod('instanceOf', assertInstanceOf);
 
@@ -1338,7 +1337,7 @@
         }
 
         var expectedThrown = name ? name : desiredError ? _.inspect(desiredError) : 'an error';
-        var actuallyGot = ''
+        var actuallyGot = '';
         if (thrown) {
           actuallyGot = ' but ' + _.inspect(thrownError) + ' was thrown'
         }
@@ -1348,8 +1347,7 @@
           , 'expected #{this} to throw ' + expectedThrown + actuallyGot
           , 'expected #{this} to not throw ' + expectedThrown + actuallyGot
         );
-      };
-
+      }
       Assertion.addMethod('throw', assertThrows);
       Assertion.addMethod('throws', assertThrows);
       Assertion.addMethod('Throw', assertThrows);
@@ -2510,7 +2508,7 @@
       (function alias(name, as){
         assert[as] = assert[name];
         return alias;
-      })
+      };;)
       ('Throw', 'throw')
       ('Throw', 'throws');
     };
@@ -2584,10 +2582,10 @@
 
         should.exist = function (val, msg) {
           new Assertion(val, msg).to.exist;
-        }
+        };
 
         // negation
-        should.not = {}
+        should.not = {};
 
         should.not.equal = function (val1, val2, msg) {
           new Assertion(val1, msg).to.not.equal(val2);
@@ -2599,14 +2597,13 @@
 
         should.not.exist = function (val, msg) {
           new Assertion(val, msg).to.not.exist;
-        }
+        };
 
         should['throw'] = should['Throw'];
         should.not['throw'] = should.not['Throw'];
 
         return should;
-      };
-
+      }
       chai.should = loadShould;
       chai.Should = loadShould;
     };
@@ -3100,12 +3097,11 @@
         , parts = str.match(/(\\\.|[^.]+?)+/g);
       return parts.map(function (value) {
         var re = /\[(\d+)\]$/
-          , mArr = re.exec(value)
+          , mArr = re.exec(value);
         if (mArr) return { i: parseFloat(mArr[1]) };
         else return { p: value };
       });
-    };
-
+    }
     /*!
      * ## _getPathValue(parsed, obj)
      *
@@ -3136,8 +3132,7 @@
         }
       }
       return res;
-    };
-
+    }
   }); // module: chai/utils/getPathValue.js
 
   require.register("chai/utils/index.js", function(module, exports, require){
@@ -3712,7 +3707,7 @@
         , _super = function () {};
 
       if (_get && 'function' === typeof _get.get)
-        _super = _get.get
+        _super = _get.get;
 
       Object.defineProperty(ctx, name,
         { get: function () {

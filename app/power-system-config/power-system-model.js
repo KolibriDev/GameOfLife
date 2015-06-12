@@ -41,4 +41,4 @@ module.exports = function(queue, uidFactory){
         on : eventDispatcher.on
     };
     return me;
-}
+};

@@ -398,7 +398,7 @@ buster.format.ascii = (function () {
         }
 
         var cons = ascii.constructorName.call(this, object);
-        var prefix = cons ? "[" + cons + "] " : ""
+        var prefix = cons ? "[" + cons + "] " : "";
 
         return (length + indent) > 80 ?
             prefix + "{\n  " + is + pieces.join(",\n  " + is) + "\n" + is + "}" :
@@ -729,7 +729,7 @@ var sinon = (function (buster) {
         log: function () {},
 
         logError: function (label, err) {
-            var msg = label + " threw exception: "
+            var msg = label + " threw exception: ";
             sinon.log(msg + "[" + err.name + "] " + err.message);
             if (err.stack) { sinon.log(err.stack); }
 
@@ -3007,7 +3007,7 @@ sinon.xhr = { XMLHttpRequest: this.XMLHttpRequest };
     function some(collection, callback) {
         for (var index = 0; index < collection.length; index++) {
             if(callback(collection[index]) === true) return true;
-        };
+        }
         return false;
     }
     // largest arity in XHR is 5 - XHR#open
@@ -3019,7 +3019,7 @@ sinon.xhr = { XMLHttpRequest: this.XMLHttpRequest };
         case 3: return obj[method](args[0],args[1],args[2]);
         case 4: return obj[method](args[0],args[1],args[2],args[3]);
         case 5: return obj[method](args[0],args[1],args[2],args[3],args[4]);
-        };
+        }
     };
 
     FakeXMLHttpRequest.filters = [];
@@ -4058,8 +4058,7 @@ if (typeof module == "object" && typeof require == "function") {
     function exposedName(prefix, prop) {
         return !prefix || /^fail/.test(prop) ? prop :
             prefix + prop.slice(0, 1).toUpperCase() + prop.slice(1);
-    };
-
+    }
     assert = {
         failException: "AssertError",
 

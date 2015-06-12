@@ -83,9 +83,10 @@ function isArray(obj) {
  * @api public
  */
 
-function EventEmitter(){};
 
-/**
+function EventEmitter() {
+}
+  /**
  * Adds a listener.
  *
  * @api public
@@ -121,8 +122,7 @@ EventEmitter.prototype.once = function (name, fn) {
   function on () {
     self.removeListener(name, on);
     fn.apply(this, arguments);
-  };
-
+  }
   on.listener = fn;
   this.on(name, on);
 
@@ -1277,7 +1277,7 @@ var d = h * 24;
 module.exports = function(val){
   if ('string' == typeof val) return parse(val);
   return format(val);
-}
+};
 
 /**
  * Parse the given `str` and return milliseconds.
@@ -1638,7 +1638,7 @@ Base.prototype.epilogue = function(){
   if (stats.failures) {
     fmt = color('bright fail', '  ' + exports.symbols.err)
       + color('fail', ' %d of %d %s failed')
-      + color('light', ':')
+      + color('light', ':');
 
     console.error(fmt,
       stats.failures,
@@ -1967,7 +1967,7 @@ function HTML(runner, root) {
     , report = fragment('<ul id="mocha-report"></ul>')
     , stack = [report]
     , progress
-    , ctx
+    , ctx;
 
   root = root || document.getElementById('mocha');
 
@@ -2279,9 +2279,8 @@ function map(cov) {
   }
 
   return ret;
-};
-
-/**
+}
+  /**
  * Map jscoverage data for a single source file
  * to a JSON structure suitable for reporting.
  *
@@ -2561,7 +2560,7 @@ function Landing(runner) {
     stream.write(runway());
     stream.write('\n  ');
     stream.write(color('runway', Array(col).join('⋅')));
-    stream.write(plane)
+    stream.write(plane);
     stream.write(color('runway', Array(width - col).join('⋅') + '\n'));
     stream.write(runway());
     stream.write('\u001b[0m');
@@ -3895,7 +3894,7 @@ Runner.prototype.checkGlobals = function(test){
   var leaks;
 
   // check length - 2 ('errno' and 'location' globals)
-  if (isNode && 1 == ok.length - globals.length) return
+  if (isNode && 1 == ok.length - globals.length) return;
   else if (2 == ok.length - globals.length) return;
 
   leaks = filterLeaks(ok, globals);
@@ -4724,7 +4723,7 @@ exports.filter = function(arr, fn){
 
 exports.keys = Object.keys || function(obj) {
   var keys = []
-    , has = Object.prototype.hasOwnProperty // for `window` on <=IE8
+    , has = Object.prototype.hasOwnProperty; // for `window` on <=IE8
 
   for (var key in obj) {
     if (has.call(obj, key)) {
@@ -4924,7 +4923,7 @@ process.nextTick = (function(){
   // based on setZeroTimeout by David Baron
   // - http://dbaron.org/log/20100309-faster-timeouts
   var timeouts = []
-    , name = 'mocha-zero-timeout'
+    , name = 'mocha-zero-timeout';
 
   window.addEventListener('message', function(e){
     if (e.source == window && e.data == name) {
@@ -4962,9 +4961,8 @@ process.on = function(e, fn){
 };
 
 // boot
-;(function(){
-
-  /**
+  (function () {
+    /**
    * Expose mocha.
    */
 
