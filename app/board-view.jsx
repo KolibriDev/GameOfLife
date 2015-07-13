@@ -1,4 +1,4 @@
-module.exports = function (powerSystemModel ) {
+module.exports = function (board ) {
     return React.createClass({
         getInitialState: function () {
             return {};
@@ -7,7 +7,8 @@ module.exports = function (powerSystemModel ) {
         },
         render: function () {
             return (
-                <div className="row">
+                <div className="board">
+                    Board will render here
                 </div>
             );
         }

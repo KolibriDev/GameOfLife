@@ -15,10 +15,57 @@
   <script src="/scripts/vendor.js?DIGEST"></script>
   <script src="/scripts/app.js?DIGEST"></script>
   <script>$(function(){
-    require('app-view')(require('power-system-config-context'), document.getElementById('container'));
+    require('app-view')(require('app-context'), document.getElementById('container'));
   });</script>
+
+  <style>
+    table{
+      font-size: 4px;
+    }
+    td.alive{
+      background-color: pink;
+      color: pink;
+      min-width: 1em;
+    }
+    td.dead{
+      background-color: #ff0000;
+      color: #ff0000;
+      min-width: 1em;
+    }
+  </style>
 </head>
 <body>
+
+<div>
+  <table>
+    <tbody>
+    <tr>
+      <td class="alive">1</td>
+      <td class="alive">1</td>
+      <td class="ancestor">-</td>
+      <td class="dead">0</td>
+    </tr>
+    <tr>
+      <td class="alive">1</td>
+      <td class="alive">1</td>
+      <td class="ancestor">-</td>
+      <td class="dead">0</td>
+    </tr>
+    <tr>
+      <td class="ancestor">-</td>
+      <td class="alive">-</td>
+      <td class="alive">-</td>
+      <td class="dead">-</td>
+    </tr>
+    <tr>
+      <td class="dead">-</td>
+      <td class="dead">-</td>
+      <td class="dead">-</td>
+      <td class="dead">-</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
    <div class="center" id="container">
      <div class="loading">Örlitla þolinmæði á meðan þetta birtist.</div>
