@@ -21,15 +21,15 @@ var boardConstructor = function(cells){
         },
         step: function () {
             var nextGenerationCells = JSON.parse(JSON.stringify(cells));
-            _.each(cells, function (row, i) {
-                _.each(row, function (cell, j) {
-                    var neigbourCount = liveNeighbours(i, j);
+            _.each(cells, function (row, y) {
+                _.each(row, function (cell, x) {
+                    var neigbourCount = liveNeighbours(y, x);
                     if (cell) {
-                        nextGenerationCells[i][j] = Number(neigbourCount === 2 || neigbourCount === 3);
+                        nextGenerationCells[y][x] = Number(neigbourCount === 2 || neigbourCount === 3);
                     } else{
 
                         if( neigbourCount === 3){
-                            nextGenerationCells[i][j] = 1;
+                            nextGenerationCells[y][x] = 1;
                         }
 
                     }
@@ -38,20 +38,21 @@ var boardConstructor = function(cells){
             });
             return boardConstructor(nextGenerationCells)
         },
-        cell: function (i, j) {
-            if(i<0 || j < 0){
+        cell: function (x, y) {
+            if(x<0 || y < 0){
                 return 0;
             }
-            if(i>=cells.length || j >= cells[0].length){
+            if(x>=cells.length || y >= cells[0].length){
                 return 0;
             }
-            return cells[i][j];
+            return cells[x][y];
         },
         writeToConsole : function(console){
             _.each(cells, function(row){
                 console.log(row.join(","));
             })
-        }
+        },
+        cells: cells
     };
     return board
 };
