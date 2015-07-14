@@ -36,6 +36,7 @@ var boardConstructor = function(cells){
                 })
 
             });
+            cells = nextGenerationCells;
             return boardConstructor(nextGenerationCells)
         },
         cell: function (x, y) {

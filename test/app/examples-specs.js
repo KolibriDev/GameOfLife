@@ -1,7 +1,6 @@
 // var React          = require('react')
 // var ReactAddons    = require('react/addons') // You also need to require the addons
 
-var ReactTestUtils = React.addons.TestUtils;
 var defaultProps = {};
 
 var Hello = React.createClass({displayName: 'Hello',

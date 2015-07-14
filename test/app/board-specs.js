@@ -53,6 +53,17 @@ describe('Game of life board', function () {
         board.step().cell(1,1).should.equal(1);
     });
 
+
+    it('step should mutate state of board object',function(){
+        var initialBoard = emptyBoard();
+        initialBoard[0]= [0,1,0];
+        initialBoard[1]= [1,0,1];
+        var board = require('board')(initialBoard);
+        board.step();
+        board.cell(1,1).should.equal(1);
+    });
+
+
     it('should render output console.out',function(){
         var logStatements=[];
         var myConsole = {

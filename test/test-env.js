@@ -35,21 +35,30 @@ module.exports = {
     },
     init: function () {
 
+
         autoRequireTests();
 
+
+        beforeEach(function(){
+//            document.getElementById('container').innerHTML = "";
+        });
+
         afterEach(function (done) {
-//      React.unmountComponentAtNode(document.getElementById('container'));
+            React.unmountComponentAtNode(document.getElementById('container'));
+
+//  Uncomment next line to remove html rendered by last executed test.
 //      document.getElementById('container').innerHTML = "";
 
             setTimeout(done)
         });
 
 
-        window.renderComponent = function (ReactComponent) {
-            var testElement = React.createElement(ReactComponent, null);
+        window.renderComponent = function (ReactComponent, props) {
+            var testElement = React.createElement(ReactComponent, props || null);
+            return React.render(testElement, document.getElementById('container'));
+        };
 
-            React.render(testElement, document.getElementById('container'));
-        }
+        window.ReactTestUtils = React.addons.TestUtils;
 
     }
 };
