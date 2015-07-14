@@ -1,17 +1,26 @@
 module.exports = function (board) {
     return React.createClass({
         getInitialState: function () {
-            return {};
+            var me = this;
+            board.onCellChange(this.props.x, this.props.y, function(oldState, newState){
+                me.setState({
+                    alive:newState
+                });
+            });
+
+            return {
+                alive:0
+            };
         },
         componentWillUnmount: function(){
         },
         handleClick: function(){
-            console.debug("Got click");
-
+            board.bringToLive(this.props.x, this.props.y);
         },
         render: function () {
+            var stateClass = this.state.alive?'alive':'dead';
             return (
-                <td className="dead" onClick={this.handleClick}>xX
+                <td className={stateClass} onClick={this.handleClick}>{this.state.alive}
                 </td>
             );
         }

@@ -4,7 +4,9 @@ module.exports = function (board, CellViewFactory) {
 
     return React.createClass({
         getInitialState: function () {
-            return {};
+            return {
+                cells: board.cells
+            };
         },
         componentWillUnmount: function(){
         },

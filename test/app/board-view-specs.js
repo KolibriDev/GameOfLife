@@ -15,7 +15,6 @@ describe('board view', function(){
             renderComponent(boardView(Board, CellView));
         });
 
-
         it('should render table',function(){
             $('table.board').length.should.equal(1);
         });
@@ -42,8 +41,11 @@ describe('board view', function(){
                     stepRequested = true;
                 }
             };
+
             var BoardView = boardView(board, CellView);
+
             var attached = renderComponent(BoardView);
+
             /*
              var detached = ReactTestUtils.renderIntoDocument(React.createElement(BoardView, null));
              console.debug("detached", detached);
