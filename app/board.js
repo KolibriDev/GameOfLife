@@ -81,7 +81,6 @@ var boardConstructor = function(cells, cellChangeListeners){
             _cellChangeListeners[y][x].push(callback);
         },
         bringToLive : function(x, y){
-            console.debug("bring to live x, y", x, y);
             var previousState = latestGeneration.cells[y][x];
             latestGeneration.cells[y][x] = 1;
             notifyCellChange(x, y, previousState, latestGeneration.cells[y][x] );

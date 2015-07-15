@@ -1,6 +1,14 @@
 describe('cell view', function(){
-    var CellView;
-    var fakeBoard = {};
+    var CellView, broughtToLive;
+    var fakeBoard = {
+        onCellChange : function(){
+
+        },
+        bringToLive : function(){
+            broughtToLive = true;
+        }
+    };
+
     var topElement;
 
     beforeEach(function(){
@@ -11,6 +19,8 @@ describe('cell view', function(){
         var tableElement = React.createElement('table', {}, [tbodyElement]);
 
         topElement =  React.render(tableElement, document.getElementById('container'));
+
+        broughtToLive = false;
     });
 
     describe('rendering', function(){
@@ -25,18 +35,23 @@ describe('cell view', function(){
 
     describe('user event handling', function(){
 
-        it('should get click on td',function(){
+        it('click on td should bring cell to live',function(){
             var cell = ReactTestUtils.findRenderedComponentWithType(topElement, CellView);
-
-            console.debug("Clicking....", cell.getDOMNode());
-
             ReactTestUtils.Simulate.click(cell.getDOMNode());
-
-            console.debug("DONE clicking...");
-
-            cell.should.be.ok;
-
+            broughtToLive.should.be.ok;
         });
+
+        it('drag over td with left button pressed should bring cell to live', function(){
+            var cell = ReactTestUtils.findRenderedComponentWithType(topElement, CellView);
+            ReactTestUtils.SimulateNative.mouseOver(cell.getDOMNode(), {buttons:1});
+            broughtToLive.should.be.ok;
+        });
+
+        it('drag over td with left button depressed should not bring cell to live', function(){
+            var cell = ReactTestUtils.findRenderedComponentWithType(topElement, CellView);
+            ReactTestUtils.SimulateNative.mouseOver(cell.getDOMNode(), {buttons:0});
+            broughtToLive.should.not.be.ok;
+        })
 
     });
 });
